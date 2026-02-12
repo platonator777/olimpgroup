@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОЛИМП ГРУПП | Дистрибьюция смазочных материалов</title>
+    <!-- Шрифт Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- ПЕРЕМЕННЫЕ И БАЗА --- */
+        :root {
+            --primary-blue: #0e2a47; /* Глубокий синий */
+            --secondary-blue: #1c528a; /* Светлее для градиентов */
+            --accent-gold: #f0bd1c;   /* Золотой */
+            --gold-hover: #d4a310;
+            --text-dark: #222;
+            --text-grey: #555;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(240, 189, 28, 0.3);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .section-padding { padding: 80px 10%; }
+        
+        .title-block {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .title-block h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Декоративная линия под заголовком */
+        .title-block h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- ХЕДЕР --- */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 50px; width: auto; }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-info { display: flex; align-items: center; gap: 30px; }
+        
+        .contact-item { text-align: right; }
+        .contact-item a { display: block; font-weight: 700; color: var(--primary-blue); font-size: 1.1rem; }
+        .contact-item span { font-size: 0.85rem; color: var(--text-grey); }
+
+        /* --- HERO (Главный экран) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(14, 42, 71, 0.9), rgba(14, 42, 71, 0.6)), 
+                        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* --- ПРЕИМУЩЕСТВА (Новый блок) --- */
+        .features {
+            background-color: var(--white);
+            padding-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* --- ПАРТНЕРЫ (Исправлено) --- */
+        .partners { background-color: var(--white); }
+
+        .partners-container {
+            display: flex;
+            flex-wrap: wrap;       /* Перенос на новую строку */
+            justify-content: center; /* Центрирование по горизонтали! */
+            gap: 30px;             /* Отступы между карточками */
+        }
+
+        .partner-card {
+            width: 220px;          /* Фиксированная ширина для аккуратности */
+            height: 120px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: 0.3s;
+            background: var(--white);
+        }
+
+        .partner-card img {
+            max-height: 60px;
+            filter: grayscale(100%); /* Черно-белый по умолчанию */
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .partner-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .partner-card:hover img {
+            filter: grayscale(0%); /* Цветной при наведении */
+            opacity: 1;
+        }
+
+        /* --- КАТЕГОРИИ (Новый блок) --- */
+        .categories { background-color: var(--bg-light); }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cat-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .cat-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(14, 42, 71, 0.9), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .cat-item:hover img { transform: scale(1.1); }
+
+        .cat-title { font-size: 1.5rem; font-weight: 700; }
+        .cat-desc { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- CTA БЛОК (Новый блок) --- */
+        .cta-section {
+            background: var(--primary-blue);
+            padding: 60px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cta-text h2 { font-size: 2rem; margin-bottom: 10px; }
+        .cta-text p { opacity: 0.8; }
+
+        /* --- О КОМПАНИИ --- */
+        .about { display: flex; gap: 60px; align-items: center; }
+        .about-text { flex: 1; }
+        .about-img { flex: 1; }
+        .about-img img { border-radius: 20px; box-shadow: 20px 20px 0px var(--bg-light); }
+        
+        .about-text p { margin-bottom: 20px; color: var(--text-grey); }
+        .stats { display: flex; gap: 40px; margin-top: 30px; }
+        .stat-item h4 { font-size: 2.5rem; color: var(--accent-gold); font-weight: 800; line-height: 1; }
+        .stat-item span { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: var(--primary-blue); }
+
+        /* --- ФУТЕР --- */
+        footer {
+            background: #0a1f35;
+            color: #ccc;
+            padding: 80px 10% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--accent-gold); }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* --- МОДАЛКА --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .modal-content { background: white; margin: 10% auto; padding: 40px; width: 90%; max-width: 450px; border-radius: 15px; position: relative; text-align: center; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; }
+        .modal input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 50px; background: #f9f9f9; outline: none; }
+        .modal input:focus { border-color: var(--accent-gold); }
+
+        /* Адаптив */
+        @media (max-width: 900px) {
+            header { flex-direction: column; gap: 15px; }
+            .header-info { width: 100%; justify-content: space-between; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .about { flex-direction: column; }
+            .cta-section { text-align: center; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Лого">
+            <span class="logo-text">ОЛИМП ГРУПП</span>
+        </div>
+        <div class="header-info">
+            <div class="contact-item mobile-hidden">
+                <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+                <span>Пн-Пт: 9:00 - 18:00</span>
+            </div>
+            <button class="btn btn-gold" onclick="openModal()">Заказать звонок</button>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Моторные масла<br>оптом от дистрибьютора</h1>
+            <p>Официальные поставки Mobil, Shell, Castrol и других брендов.<br>Гарантия качества и лучшие цены на рынке.</p>
+            <button class="btn btn-gold" onclick="document.getElementById('catalog').scrollIntoView()">Перейти в каталог</button>
+        </div>
+    </section>
+
+    <!-- Преимущества (Новый блок) -->
+    <section class="section-padding features">
+        <div class="title-block">
+            <h2>Почему выбирают нас</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>100% Оригинал</h3>
+                <p>Полный пакет документов и сертификатов на каждую партию.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Быстрая доставка</h3>
+                <p>Собственный автопарк и отлаженная логистика по всей России.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Лучшие цены</h3>
+                <p>Прямые контракты с заводами позволяют давать скидки от объема.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏭</div>
+                <h3>Собственный склад</h3>
+                <p>Более 50 000 литров масла всегда в наличии на нашем складе.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Партнеры (Исправленная центровка) -->
+    <section class="section-padding partners">
+        <div class="title-block">
+            <h2>Наши партнеры</h2>
+            <p style="margin-top: 10px; color: #666;">Мы являемся официальными дистрибьюторами</p>
+        </div>
+        
+        <div class="partners-container">
+            <!-- Ссылки на логотипы (реальные логотипы брендов) -->
+            <!-- SHELL -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Shell_logo.svg/1200px-Shell_logo.svg.png" alt="Shell">
+            </a>
+            <!-- MOBIL -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Mobil_Logo.svg/2560px-Mobil_Logo.svg.png" alt="Mobil">
+            </a>
+            <!-- CASTROL -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Castrol_Logo.svg/2560px-Castrol_Logo.svg.png" alt="Castrol">
+            </a>
+            <!-- LUKOIL -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lukoil_Logo.svg/2560px-Lukoil_Logo.svg.png" alt="Lukoil">
+            </a>
+            <!-- MOTUL -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Motul_Logo.svg/2560px-Motul_Logo.svg.png" alt="Motul">
+            </a>
+            <!-- LIQUI MOLY -->
+            <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Liqui_Moly_logo.svg/2560px-Liqui_Moly_logo.svg.png" alt="Liqui Moly">
+            </a>
+             <!-- TOTAL -->
+             <a href="#" class="partner-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/TotalEnergies_logo.svg/2560px-TotalEnergies_logo.svg.png" alt="Total">
+            </a>
+        </div>
+    </section>
+
+    <!-- Категории (Новый блок) -->
+    <section id="catalog" class="section-padding categories">
+        <div class="title-block">
+            <h2>Каталог продукции</h2>
+        </div>
+        <div class="cat-grid">
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Легковые авто">
+                <div class="cat-overlay">
+                    <div class="cat-title">Легковой транспорт</div>
+                    <div class="cat-desc">Масла для бензиновых и дизельных двигателей</div>
+                </div>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Грузовые авто">
+                <div class="cat-overlay">
+                    <div class="cat-title">Коммерческая техника</div>
+                    <div class="cat-desc">Для грузовиков, фур и спецтехники</div>
+                </div>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Трансмиссия">
+                <div class="cat-overlay">
+                    <div class="cat-title">Трансмиссионные масла</div>
+                    <div class="cat-desc">Для АКПП, МКПП и редукторов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA - Лид-магнит (Новый блок) -->
+    <section class="cta-section">
+        <div class="cta-text">
+            <h2>Нужен оптовый прайс-лист?</h2>
+            <p>Скачайте полный каталог с актуальными остатками и ценами прямо сейчас.</p>
+        </div>
+        <button class="btn" style="background: white; color: var(--primary-blue);">Скачать прайс (PDF)</button>
+    </section>
+
+    <!-- О компании -->
+    <section class="section-padding about">
+        <div class="about-text">
+            <div class="title-block" style="text-align: left;">
+                <h2>О компании</h2>
+            </div>
+            <p><strong>ОЛИМП ГРУПП</strong> — надежный поставщик смазочных материалов на российском рынке. Мы не просто продаем масло, мы помогаем вашему бизнесу работать без простоев.</p>
+            <p>Среди наших клиентов: крупные автопарки, станции технического обслуживания, промышленные предприятия и розничные магазины автозапчастей.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h4>10+</h4>
+                    <span>Лет на рынке</span>
+                </div>
+                <div class="stat-item">
+                    <h4>500+</h4>
+                    <span>Клиентов</span>
+                </div>
+                <div class="stat-item">
+                    <h4>24/7</h4>
+                    <span>Поддержка</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Склад">
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <span class="logo-text" style="color: white;">ОЛИМП ГРУПП</span>
+                </div>
+                <p>Качественные моторные масла оптом и в розницу с доставкой по РФ.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>📍 г. Москва, ул. Ленина, д. 1, оф. 100</li>
+                    <li>📞 +7 (495) 000-00-00</li>
+                    <li>✉️ sales@olimp-group.ru</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Реквизиты</h4>
+                <ul>
+                    <li>ИНН: 7700000000</li>
+                    <li>ОГРН: 1157700000000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2023 ОЛИМП ГРУПП. Политика конфиденциальности.
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modalWindow" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: var(--primary-blue); margin-bottom: 10px;">Заказать звонок</h2>
+            <p style="margin-bottom: 20px; color: #666;">Заполните форму, и мы свяжемся с вами.</p>
+            <form>
+                <input type="text" placeholder="Ваше имя">
+                <input type="tel" placeholder="+7 (999) 000-00-00">
+                <button type="button" class="btn btn-gold" style="width: 100%; margin-top: 15px;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modalWindow");
+        function openModal() { modal.style.display = "block"; }
+        function closeModal() { modal.style.display = "none"; }
+        window.onclick = function(e) { if(e.target == modal) modal.style.display = "none"; }
+    </script>
+</body>
+</html>
