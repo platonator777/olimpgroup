@@ -139,7 +139,7 @@ img { max-width: 100%; display: block; }
 }
 
 .logo img {
-    height: 60px;
+    height: 90px;
     width: auto;
 }
 
@@ -193,7 +193,7 @@ img { max-width: 100%; display: block; }
     min-height: 350px;
     background:
         linear-gradient(135deg, rgba(14, 42, 71, 0.92), rgba(14, 42, 71, 0.65)),
-        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        url('images/main.avif');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -296,10 +296,16 @@ img { max-width: 100%; display: block; }
     gap: 15px;
 }
 
+/* ============================
+   ПАРТНЁРЫ — СЛАЙДЕР
+   ============================ */
 .partners-slider-viewport {
     overflow: hidden;
     flex: 1;
     max-width: 1000px;
+    /* ▼▼▼ ДОБАВЛЯЕМ padding сверху и снизу, чтобы hover-подъём не обрезался ▼▼▼ */
+    padding: 15px 0;
+    margin: -15px 0; /* компенсируем, чтобы общая высота не изменилась */
 }
 
 .partners-slider-track {
@@ -307,6 +313,8 @@ img { max-width: 100%; display: block; }
     gap: 25px;
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
+    /* ▼▼▼ Дополнительная страховка — даём треку свободу по вертикали ▼▼▼ */
+    padding: 10px 0;
 }
 
 .partner-slide {
@@ -317,7 +325,8 @@ img { max-width: 100%; display: block; }
     align-items: center;
     gap: 14px;
     text-decoration: none;
-    transition: transform 0.3s;
+    /* ▼▼▼ Плавный подъём без рывка ▼▼▼ */
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .partner-slide:hover {
