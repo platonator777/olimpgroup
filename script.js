@@ -19,7 +19,6 @@ function openModal() {
 function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = '';
-    // Сбросить форму через секунду после закрытия
     setTimeout(resetForm, 300);
 }
 
@@ -36,57 +35,39 @@ function resetForm() {
 }
 
 window.addEventListener('click', function (e) {
-    if (e.target === modal) {
-        closeModal();
-    }
+    if (e.target === modal) closeModal();
 });
 
 window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeModal();
-    }
+    if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
 });
 
 /* ============================
    МАСКА ТЕЛЕФОНА
    ============================ */
 userPhoneInput.addEventListener('input', function (e) {
-    let value = e.target.value.replace(/\D/g, ''); // только цифры
+    let value = e.target.value.replace(/\D/g, '');
 
-    // Если начинается с 8, заменяем на 7
     if (value.startsWith('8')) {
         value = '7' + value.substring(1);
     }
 
-    // Если пусто, не форматируем
     if (value.length === 0) {
         e.target.value = '';
         return;
     }
 
-    // Форматируем: +7 (XXX) XXX-XX-XX
     let formatted = '+7';
-    if (value.length > 1) {
-        formatted += ' (' + value.substring(1, 4);
-    }
-    if (value.length >= 4) {
-        formatted += ') ' + value.substring(4, 7);
-    }
-    if (value.length >= 7) {
-        formatted += '-' + value.substring(7, 9);
-    }
-    if (value.length >= 9) {
-        formatted += '-' + value.substring(9, 11);
-    }
+    if (value.length > 1) formatted += ' (' + value.substring(1, 4);
+    if (value.length >= 4) formatted += ') ' + value.substring(4, 7);
+    if (value.length >= 7) formatted += '-' + value.substring(7, 9);
+    if (value.length >= 9) formatted += '-' + value.substring(9, 11);
 
     e.target.value = formatted;
 });
 
-// При фокусе, если пусто, подставляем +7
 userPhoneInput.addEventListener('focus', function () {
-    if (this.value === '') {
-        this.value = '+7';
-    }
+    if (this.value === '') this.value = '+7';
 });
 
 /* ============================
@@ -95,8 +76,7 @@ userPhoneInput.addEventListener('focus', function () {
 function validateForm() {
     let isValid = true;
 
-    // Имя: минимум 2 символа
-    const name = userNameInput.value.trim();
+    var name = userNameInput.value.trim();
     if (name.length < 2) {
         userNameInput.classList.add('input-error');
         userNameInput.placeholder = 'Введите ваше имя';
@@ -105,8 +85,7 @@ function validateForm() {
         userNameInput.classList.remove('input-error');
     }
 
-    // Телефон: 11 цифр (с семёркой)
-    const phoneDigits = userPhoneInput.value.replace(/\D/g, '');
+    var phoneDigits = userPhoneInput.value.replace(/\D/g, '');
     if (phoneDigits.length < 11) {
         userPhoneInput.classList.add('input-error');
         userPhoneInput.placeholder = 'Введите номер полностью';
@@ -119,12 +98,16 @@ function validateForm() {
 }
 
 /* ============================
-   ОТПРАВКА ФОРМЫ
+   ОТПРАВКА ФОРМЫ ЧЕРЕЗ FORMSUBMIT
    ============================ */
+
+// ⬇️⬇️⬇️ ЗАМЕНИТЕ НА СВОЮ ПОЧТУ ⬇️⬇️⬇️
+var YOUR_EMAIL = 'platon.kapa@gmail.com';
+// ⬆️⬆️⬆️ ЗАМЕНИТЕ НА СВОЮ ПОЧТУ ⬆️⬆️⬆️
+
 callbackForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Валидация
     if (!validateForm()) return;
 
     // Показываем загрузку
@@ -133,12 +116,15 @@ callbackForm.addEventListener('submit', function (e) {
     btnLoader.style.display = 'inline';
 
     // Собираем данные
-    const formData = new FormData();
+    var formData = new FormData();
     formData.append('name', userNameInput.value.trim());
     formData.append('phone', userPhoneInput.value.trim());
+    formData.append('_subject', '🔔 Новая заявка с сайта ОЛИМП ГРУПП');
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'box');
 
-    // Отправляем на PHP-обработчик
-    fetch('send-mail.php', {
+    // Отправляем через FormSubmit
+    fetch('https://formsubmit.co/ajax/' + YOUR_EMAIL, {
         method: 'POST',
         body: formData
     })
@@ -146,20 +132,17 @@ callbackForm.addEventListener('submit', function (e) {
         return response.json();
     })
     .then(function (data) {
-        if (data.success) {
-            // Успех — показываем сообщение
+        if (data.success === 'true' || data.success === true) {
             callbackForm.style.display = 'none';
             successMessage.style.display = 'block';
             errorMessage.style.display = 'none';
-
-            // Автозакрытие через 4 секунды
             setTimeout(closeModal, 4000);
         } else {
-            throw new Error(data.message || 'Ошибка сервера');
+            throw new Error('Ошибка отправки');
         }
     })
     .catch(function (err) {
-        console.error('Ошибка отправки:', err);
+        console.error('Ошибка:', err);
         callbackForm.style.display = 'none';
         successMessage.style.display = 'none';
         errorMessage.style.display = 'block';
@@ -175,16 +158,16 @@ callbackForm.addEventListener('submit', function (e) {
    СЛАЙДЕР ПАРТНЁРОВ
    ============================ */
 (function () {
-    const track = document.getElementById('sliderTrack');
-    const btnLeft = document.getElementById('sliderLeft');
-    const btnRight = document.getElementById('sliderRight');
+    var track = document.getElementById('sliderTrack');
+    var btnLeft = document.getElementById('sliderLeft');
+    var btnRight = document.getElementById('sliderRight');
 
     if (!track || !btnLeft || !btnRight) return;
 
-    const slides = track.querySelectorAll('.partner-slide');
+    var slides = track.querySelectorAll('.partner-slide');
     if (slides.length === 0) return;
 
-    let currentOffset = 0;
+    var currentOffset = 0;
 
     function getSlideStep() {
         var slide = slides[0];
@@ -226,7 +209,6 @@ callbackForm.addEventListener('submit', function (e) {
         updateTrack();
     });
 
-    // Свайпы
     var touchStartX = 0;
 
     track.addEventListener('touchstart', function (e) {
