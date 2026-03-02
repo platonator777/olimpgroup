@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сертификаты | ОЛИМП ГРУПП</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Липкая полоска -->
+    <div class="sticky-bar">
+        <div class="sticky-bar-inner">
+            <!-- Бургер СЛЕВА (только на мобильных виден) -->
+            <button class="burger-toggle" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Навигация слева -->
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Главная</a>
+                <a href="#catalog">Направления</a>
+                <a href="#about">О компании</a>
+                <a href="certificates.html">Сертификаты</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <!-- Телефон + кнопка справа -->
+            <div class="sticky-right">
+                <div class="contact-item">
+                    <a href="tel:+73422009532">+7 (342) 200-95-32</a>
+                    <span>Пн-Пт: 9:00 - 17:30</span>
+                </div>
+                <button class="btn btn-gold btn-sm" onclick="openModal()">Заказать звонок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Шапка -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Сертификаты и документы</h1>
+            <p>Мы работаем только с сертифицированной продукцией. Все документы доступны для просмотра и скачивания.</p>
+        </div>
+    </section>
+
+    <!-- Сертификаты -->
+    <section class="section-padding certificates-section">
+        <div class="certificates-grid">
+
+            <!--
+                Для каждого сертификата:
+                - data-type="pdf" или data-type="image"
+                - data-src="путь к PDF или изображению"
+                - img src — превью (для PDF сделайте скриншот первой страницы)
+            -->
+
+            <div class="cert-card" data-type="pdf" data-src="docs/cert-taif.pdf">
+                <div class="cert-preview">
+                    <img src="images/certs/cert1.jpg" alt="Сертификат TAIF">
+                    <div class="cert-badge">PDF</div>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-label">Сертификат соответствия TAIF</div>
+                    <div class="cert-actions">
+                        <a class="btn-cert" href="docs/cert1.pdf" download>👁 Смотреть</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-card" data-type="pdf" data-src="docs/cert-rixx.pdf">
+                <div class="cert-preview">
+                    <img src="images/certs/cert2.png" alt="Сертификат Rixx">
+                    <div class="cert-badge">PDF</div>
+                </div>
+                <div class="cert-info">
+                    <div class="cert-label">Сертификат дилера Rixx</div>
+                    <div class="cert-actions">
+                        <a class="btn-cert" href="docs/cert2.pdf" download>👁 Смотреть</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Добавляйте ещё карточки по аналогии -->
+        </div>
+    </section>
+
+
+    <!-- Модальное окно заявки -->
+    <div id="modalWindow" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Заказать звонок</h2>
+            <p class="modal-desc">Заполните форму, и мы свяжемся с вами.</p>
+            <form id="callbackForm">
+                <input type="text" id="userName" name="name" placeholder="Ваше имя" required>
+                <input type="tel" id="userPhone" name="phone" placeholder="+7 (999) 000-00-00" required>
+                <input type="email" id="userEmail" name="email" placeholder="Ваш e-mail (необязательно)">
+                <textarea id="userQuestion" name="message" placeholder="Ваш вопрос (необязательно)" rows="3"></textarea>
+                <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
+                    <span class="btn-text">Отправить заявку</span>
+                    <span class="btn-loader" style="display:none;">Отправка...</span>
+                </button>
+            </form>
+            <div id="successMessage" class="form-message form-success" style="display:none;">
+                <div class="success-icon">✓</div>
+                <h3>Заявка отправлена!</h3>
+                <p>Мы перезвоним вам в ближайшее время.</p>
+            </div>
+            <div id="errorMessage" class="form-message form-error" style="display:none;">
+                <div class="error-icon">✕</div>
+                <h3>Ошибка отправки</h3>
+                <p>Попробуйте ещё раз или позвоните нам.</p>
+                <button class="btn btn-gold btn-retry" onclick="resetForm()">Попробовать снова</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer id="contacts">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <span class="logo-text" style="color: white;">ОЛИМП ГРУПП</span>
+                </div>
+                <p>Качественные моторные масла оптом и в розницу с доставкой по РФ.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#catalog">Направления</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>📍 614025, Пермский край, г. о. Пермский, г. Пермь, ул. Героев Хасана, д. 105, к. 70, офис 430, 432, 434, подьезд Nº 4 «Циклон»</li>
+                    <li>📞 +7 (342) 200-95-32</li>
+                    <li>✉️ OGP.59@yandex.ru</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Реквизиты</h4>
+                <ul>
+                    <li>ИНН: 5904311545</li>
+                    <li>КПП: 590401001</li>
+                    <li>ОГРН: 1155958062127</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">© 2026 ОЛИМП ГРУПП. Политика конфиденциальности.</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

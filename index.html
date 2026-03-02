@@ -9,94 +9,105 @@
 </head>
 <body>
 
-    <!-- Верхняя статичная шапка с логотипом -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Лого">
-            <span class="logo-text">ОЛИМП ГРУПП</span>
-        </div>
-    </div>
-
-    <!-- Липкая полоска с телефоном -->
+    <!-- Липкая полоска -->
     <div class="sticky-bar">
         <div class="sticky-bar-inner">
-            <div class="contact-item">
-                <a href="tel:+73422009532">+7 (342) 200-95-32</a>
-                <span>Пн-Пт: 9:00 - 17:30</span>
+    <!-- Бургер СЛЕВА (только на мобильных виден) -->
+            <button class="burger-toggle" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Навигация слева -->
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Главная</a>
+                <a href="#catalog">Направления</a>
+                <a href="#about">О компании</a>
+                <a href="certificates.html">Сертификаты</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <!-- Телефон + кнопка справа -->
+            <div class="sticky-right">
+                <div class="contact-item">
+                    <a href="tel:+73422009532">+7 (342) 200-95-32</a>
+                    <span>Пн-Пт: 9:00 - 17:30</span>
+                </div>
+                <button class="btn btn-gold btn-sm" onclick="openModal()">Заказать звонок</button>
             </div>
-            <button class="btn btn-gold btn-sm" onclick="openModal()">Заказать звонок</button>
         </div>
     </div>
 
-    <!-- Главный экран -->
+    <!-- HERO с логотипом -->
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-glow"></div>
+                <img src="images/logo.png" alt="ОЛИМП ГРУПП">
+                <span class="hero-logo-text">ОЛИМП ГРУПП</span>
+            </div>
             <h1>Моторные масла<br>оптом от дистрибьютора</h1>
-            <p>Официальные поставки TAIF, Rixx, SUPROTEC и других брендов.<br>Гарантия качества и лучшие цены на рынке.</p>
-            <button class="btn btn-gold" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Перейти в каталог</button>
+            <p>Гарантия качества и лучшие цены на рынке.</p>
+            <button class="btn btn-gold" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Наши направления</button>
         </div>
     </section>
 
-    <!-- ПАРТНЁРЫ -->
+    <!-- ПАРТНЁРЫ — СЛАЙДЕР -->
     <section class="partners-section">
         <div class="partners-inner">
-            <div class="partners-badge">★ Официальный дистрибьютор</div>
-            <h2 class="partners-heading">Наши партнёры</h2>
+            <div class="partners-badge">★ мы являемся официальными дистрибьюторами торговых марок :</div>
             <div class="partners-slider-container">
-                <button class="slider-arrow slider-arrow-left" id="sliderLeft" aria-label="Назад">&#10094;</button>
+                <button class="slider-arrow" id="sliderLeft" aria-label="Назад">&#10094;</button>
                 <div class="partners-slider-viewport">
                     <div class="partners-slider-track" id="sliderTrack">
-                        <a href="https://taif-lubricants.ru/" class="partner-slide">
+                        <a href="https://taif-lubricants.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/taif.svg" alt="Shell">
+                                <img src="images/taif.svg" alt="TAIF">
                             </div>
                             <span class="partner-slide-name">TAIF</span>
                         </a>
-                        <a href="https://ru.rixx-corp.fr/katalog/motornye-masla/" class="partner-slide">
+                        <a href="https://ru.rixx-corp.fr/katalog/motornye-masla/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/rixx.webp" alt="Mobil">
+                                <img src="images/rixx.webp" alt="Rixx">
                             </div>
                             <span class="partner-slide-name">Rixx</span>
                         </a>
-                        <a href="https://gnvoil.ru/?ysclid=mlupj22w1b481963784" class="partner-slide">
+                        <a href="https://gnvoil.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/gnv.webp" alt="Castrol">
+                                <img src="images/gnv.webp" alt="GNV">
                             </div>
                             <span class="partner-slide-name">GNV</span>
                         </a>
-                        <a href="https://suprotec.ru/?ysclid=mlupp600js967751380" class="partner-slide">
+                        <a href="https://suprotec.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/suprotec.png" alt="Лукойл">
+                                <img src="images/suprotec.png" alt="SUPROTEC">
                             </div>
                             <span class="partner-slide-name">SUPROTEC</span>
                         </a>
-                        <a href="https://tauberg-oil.com/" class="partner-slide">
+                        <a href="https://tauberg-oil.com/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/tauberg.png" alt="Motul">
+                                <img src="images/tauberg.png" alt="TAUBERG">
                             </div>
                             <span class="partner-slide-name">TAUBERG</span>
                         </a>
-                        <a href="https://nord-oil.com/" class="partner-slide">
+                        <a href="https://nord-oil.com/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/nordoik.png" alt="Liqui Moly">
+                                <img src="images/nordoik.png" alt="NORD Oil">
                             </div>
                             <span class="partner-slide-name">NORD Oil</span>
                         </a>
-                        <a href="https://akross-oil.ru/" class="partner-slide">
+                        <a href="https://akross-oil.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/akros.png" alt="TotalEnergies">
+                                <img src="images/akros.png" alt="AKROSS">
                             </div>
                             <span class="partner-slide-name">AKROSS</span>
                         </a>
-                        <a href="https://www.niagara-auto.ru/produkty/antifriz/?ysclid=mluqz7b2me681218014" class="partner-slide">
+                        <a href="https://www.niagara-auto.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/niagara.svg" alt="TotalEnergies">
+                                <img src="images/niagara.svg" alt="NIAGARA">
                             </div>
                             <span class="partner-slide-name">NIAGARA</span>
                         </a>
                     </div>
                 </div>
-                <button class="slider-arrow slider-arrow-right" id="sliderRight" aria-label="Вперёд">&#10095;</button>
+                <button class="slider-arrow" id="sliderRight" aria-label="Вперёд">&#10095;</button>
             </div>
         </div>
     </section>
@@ -130,10 +141,10 @@
         </div>
     </section>
 
-    <!-- Категории -->
+    <!-- Наши направления -->
     <section id="catalog" class="section-padding categories">
         <div class="title-block">
-            <h2>Каталог продукции</h2>
+            <h2>Наши направления</h2>
         </div>
         <div class="cat-grid">
             <div class="cat-item">
@@ -157,11 +168,108 @@
                     <div class="cat-desc">Для АКПП, МКПП и редукторов</div>
                 </div>
             </div>
+            <div class="cat-item">
+                <img src="images/reduktor.jpg" alt="Редукторные масла">
+                <div class="cat-overlay">
+                    <div class="cat-title">Редукторные масла</div>
+                    <div class="cat-desc">Для промышленных редукторов и механизмов</div>
+                </div>
+            </div>
+            <div class="cat-item">
+                <img src="images/compressor.jpg" alt="Компрессорные масла">
+                <div class="cat-overlay">
+                    <div class="cat-title">Компрессорные масла</div>
+                    <div class="cat-desc">Для винтовых, поршневых и роторных компрессоров</div>
+                </div>
+            </div>
+            <div class="cat-item">
+                <img src="images/turbine.jpg" alt="Турбинные масла">
+                <div class="cat-overlay">
+                    <div class="cat-title">Турбинные масла</div>
+                    <div class="cat-desc">Для паровых и газовых турбин</div>
+                </div>
+            </div>
+            <div class="cat-item">
+                <img src="images/gpu.jpg" alt="Масла для ГПУ">
+                <div class="cat-overlay">
+                    <div class="cat-title">Масла для ГПУ</div>
+                    <div class="cat-desc">Для газопоршневых установок и электростанций</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA — Узнать цены -->
+    <section class="cta-prices">
+        <div class="cta-prices-inner">
+            <div class="cta-prices-icon">📋</div>
+            <div class="cta-prices-content">
+                <h2>Хотите узнать актуальные цены?</h2>
+                <p>Закажите звонок, и наш менеджер подготовит для вас индивидуальное коммерческое предложение с учётом объёма и условий поставки.</p>
+            </div>
+            <button class="btn btn-gold btn-cta-prices" onclick="openModal()">Заказать звонок</button>
+        </div>
+    </section>
+
+    <!-- Нам доверяют — СЛАЙДЕР с логотипами -->
+    <section class="section-padding trust-section">
+        <div class="title-block">
+            <h2>Нам доверяют</h2>
+        </div>
+        <div class="trust-slider-container">
+            <button class="slider-arrow" id="trustLeft" aria-label="Назад">&#10094;</button>
+            <div class="trust-slider-viewport">
+                <div class="trust-slider-track" id="trustTrack">
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/uralkali.png" alt="Уралкалий">
+                        </div>
+                        <span class="trust-slide-name">ПАО «Уралкалий»</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/uralorgsinтez.png" alt="Уралоргсинтез">
+                        </div>
+                        <span class="trust-slide-name">АО «Уралоргсинтез»</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/kamkabel.png" alt="Камкабель">
+                        </div>
+                        <span class="trust-slide-name">Камкабель</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/eurohim.png" alt="ЕвроХим">
+                        </div>
+                        <span class="trust-slide-name">ЕвроХим</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/metafrax.png" alt="Метафракс">
+                        </div>
+                        <span class="trust-slide-name">Метафракс</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/pnppk.png" alt="ПНППК">
+                        </div>
+                        <span class="trust-slide-name">ПНППК</span>
+                    </div>
+                    <div class="trust-slide">
+                        <div class="trust-slide-img">
+                            <img src="images/trust/novomet.png" alt="Новомет">
+                        </div>
+                        <span class="trust-slide-name">Новомет</span>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow" id="trustRight" aria-label="Вперёд">&#10095;</button>
         </div>
     </section>
 
     <!-- О компании -->
-    <section class="section-padding about-section">
+    <section id="about" class="section-padding about-section">
         <div class="about">
             <div class="about-text">
                 <div class="title-block">
@@ -187,7 +295,7 @@
     </section>
 
     <!-- Футер -->
-    <footer>
+    <footer id="contacts">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 20px;">
@@ -198,10 +306,11 @@
             <div class="footer-col">
                 <h4>Навигация</h4>
                 <ul>
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Каталог</a></li>
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#catalog">Направления</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -215,42 +324,36 @@
             <div class="footer-col">
                 <h4>Реквизиты</h4>
                 <ul>
-                    <li>ИНН: 5904311545 </li>
+                    <li>ИНН: 5904311545</li>
                     <li>КПП: 590401001</li>
                     <li>ОГРН: 1155958062127</li>
                 </ul>
             </div>
         </div>
-        <div class="copyright">
-            © 2026 ОЛИМП ГРУПП. Политика конфиденциальности.
-        </div>
+        <div class="copyright">© 2026 ОЛИМП ГРУПП. Политика конфиденциальности.</div>
     </footer>
 
-    <!-- Модальное окно с формой -->
+    <!-- Модальное окно -->
     <div id="modalWindow" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Заказать звонок</h2>
             <p class="modal-desc">Заполните форму, и мы свяжемся с вами.</p>
-
-            <!-- Форма отправки -->
             <form id="callbackForm">
                 <input type="text" id="userName" name="name" placeholder="Ваше имя" required>
                 <input type="tel" id="userPhone" name="phone" placeholder="+7 (999) 000-00-00" required>
+                <input type="email" id="userEmail" name="email" placeholder="Ваш e-mail (необязательно)">
+                <textarea id="userQuestion" name="message" placeholder="Ваш вопрос (необязательно)" rows="3"></textarea>
                 <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
                     <span class="btn-text">Отправить заявку</span>
                     <span class="btn-loader" style="display:none;">Отправка...</span>
                 </button>
             </form>
-
-            <!-- Сообщение об успехе (скрыто по умолчанию) -->
             <div id="successMessage" class="form-message form-success" style="display:none;">
                 <div class="success-icon">✓</div>
                 <h3>Заявка отправлена!</h3>
                 <p>Мы перезвоним вам в ближайшее время.</p>
             </div>
-
-            <!-- Сообщение об ошибке (скрыто по умолчанию) -->
             <div id="errorMessage" class="form-message form-error" style="display:none;">
                 <div class="error-icon">✕</div>
                 <h3>Ошибка отправки</h3>
@@ -262,5 +365,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
