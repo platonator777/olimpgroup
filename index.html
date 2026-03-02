@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОЛИМП ГРУПП | Дистрибьюция смазочных материалов</title>
+    <title>ОЛИМП ГРУПП | Дистрибьюция смазочных материалов и моторных масел оптом</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Официальный дистрибьютор моторных и индустриальных масел ОЛИМП ГРУПП. Оптовые поставки TAIF, Rixx, GNV, Suprotec по Перми и всей России. Свой склад, низкие цены, гарантия качества.">
+    <meta name="keywords" content="моторное масло оптом, купить масло в бочках, дистрибьютор смазочных материалов, индустриальные масла Пермь, гидравлическое масло цена, трансмиссионное масло опт, масло для грузовиков, масло для спецтехники, поставщик масел Россия, TAIF Lubricants купить, Rixx масла, GNV oil, Suprotec, Nord Oil дилер, автомасла оптом прайс, Олимп Групп Пермь">
+    
+    <!-- Open Graph (для красивых ссылок в мессенджерах) -->
+    <meta property="og:title" content="ОЛИМП ГРУПП | Масла оптом от дистрибьютора">
+    <meta property="og:description" content="Поставки смазочных материалов TAIF, Rixx, GNV. Лучшие цены на рынке.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://olimp-group.ru"> <!-- Укажите ваш реальный домен -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,11 +23,9 @@
     <!-- Липкая полоска -->
     <div class="sticky-bar">
         <div class="sticky-bar-inner">
-    <!-- Бургер СЛЕВА (только на мобильных виден) -->
-            <button class="burger-toggle" id="burgerBtn" aria-label="Меню">
+            <button class="burger-toggle" id="burgerBtn" aria-label="Открыть меню">
                 <span></span><span></span><span></span>
             </button>
-            <!-- Навигация слева -->
             <nav class="main-nav" id="mainNav">
                 <a href="index.html">Главная</a>
                 <a href="#catalog">Направления</a>
@@ -24,7 +33,6 @@
                 <a href="certificates.html">Сертификаты</a>
                 <a href="#contacts">Контакты</a>
             </nav>
-            <!-- Телефон + кнопка справа -->
             <div class="sticky-right">
                 <div class="contact-item">
                     <a href="tel:+73422009532">+7 (342) 200-95-32</a>
@@ -40,11 +48,12 @@
         <div class="hero-content">
             <div class="hero-logo">
                 <div class="hero-logo-glow"></div>
-                <img src="images/logo.png" alt="ОЛИМП ГРУПП">
+                <!-- ALT: Добавлено описание логотипа -->
+                <img src="images/logo.png" alt="Логотип компании ОЛИМП ГРУПП - поставщик масел">
                 <span class="hero-logo-text">ОЛИМП ГРУПП</span>
             </div>
             <h1>Моторные масла<br>оптом от дистрибьютора</h1>
-            <p>Гарантия качества и лучшие цены на рынке.</p>
+            <p>Гарантия качества и лучшие цены на рынке смазочных материалов.</p>
             <button class="btn btn-gold" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Наши направления</button>
         </div>
     </section>
@@ -54,60 +63,61 @@
         <div class="partners-inner">
             <div class="partners-badge">★ мы являемся официальными дистрибьюторами торговых марок :</div>
             <div class="partners-slider-container">
-                <button class="slider-arrow" id="sliderLeft" aria-label="Назад">&#10094;</button>
+                <button class="slider-arrow" id="sliderLeft" aria-label="Предыдущий бренд">&#10094;</button>
                 <div class="partners-slider-viewport">
                     <div class="partners-slider-track" id="sliderTrack">
+                        <!-- ALT: Исправлено на полные названия брендов -->
                         <a href="https://taif-lubricants.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/taif.svg" alt="TAIF">
+                                <img src="images/taif.svg" alt="Логотип TAIF Lubricants">
                             </div>
                             <span class="partner-slide-name">TAIF</span>
                         </a>
                         <a href="https://ru.rixx-corp.fr/katalog/motornye-masla/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/rixx.webp" alt="Rixx">
+                                <img src="images/rixx.webp" alt="Логотип Rixx Oil">
                             </div>
                             <span class="partner-slide-name">Rixx</span>
                         </a>
                         <a href="https://gnvoil.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/gnv.webp" alt="GNV">
+                                <img src="images/gnv.webp" alt="Логотип GNV Oil">
                             </div>
                             <span class="partner-slide-name">GNV</span>
                         </a>
                         <a href="https://suprotec.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/suprotec.png" alt="SUPROTEC">
+                                <img src="images/suprotec.png" alt="Логотип SUPROTEC">
                             </div>
                             <span class="partner-slide-name">SUPROTEC</span>
                         </a>
                         <a href="https://tauberg-oil.com/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/tauberg.png" alt="TAUBERG">
+                                <img src="images/tauberg.png" alt="Логотип TAUBERG">
                             </div>
                             <span class="partner-slide-name">TAUBERG</span>
                         </a>
                         <a href="https://nord-oil.com/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/nordoik.png" alt="NORD Oil">
+                                <img src="images/nordoik.png" alt="Логотип NORD Oil">
                             </div>
                             <span class="partner-slide-name">NORD Oil</span>
                         </a>
                         <a href="https://akross-oil.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/akros.png" alt="AKROSS">
+                                <img src="images/akros.png" alt="Логотип AKROSS">
                             </div>
                             <span class="partner-slide-name">AKROSS</span>
                         </a>
                         <a href="https://www.niagara-auto.ru/" class="partner-slide" target="_blank">
                             <div class="partner-slide-img">
-                                <img src="images/niagara.svg" alt="NIAGARA">
+                                <img src="images/niagara.svg" alt="Логотип NIAGARA">
                             </div>
                             <span class="partner-slide-name">NIAGARA</span>
                         </a>
                     </div>
                 </div>
-                <button class="slider-arrow" id="sliderRight" aria-label="Вперёд">&#10095;</button>
+                <button class="slider-arrow" id="sliderRight" aria-label="Следующий бренд">&#10095;</button>
             </div>
         </div>
     </section>
@@ -121,22 +131,22 @@
             <div class="feature-card">
                 <div class="feature-icon">🛡️</div>
                 <h3>100% Оригинал</h3>
-                <p>Полный пакет документов и сертификатов на каждую партию.</p>
+                <p>Полный пакет документов и сертификатов на каждую партию масла.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🚚</div>
                 <h3>Быстрая доставка</h3>
-                <p>Собственный автопарк и отлаженная логистика по всей России.</p>
+                <p>Собственный автопарк и отлаженная логистика доставки масел по всей России.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">💰</div>
                 <h3>Лучшие цены</h3>
-                <p>Прямые контракты с заводами позволяют давать скидки от объема.</p>
+                <p>Прямые контракты с заводами позволяют давать оптовые скидки от объема.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🏭</div>
                 <h3>Собственный склад</h3>
-                <p>Более 50 000 литров масла всегда в наличии на нашем складе.</p>
+                <p>Более 50 000 литров смазочных материалов всегда в наличии на нашем складе.</p>
             </div>
         </div>
     </section>
@@ -147,50 +157,51 @@
             <h2>Наши направления</h2>
         </div>
         <div class="cat-grid">
+            <!-- ALT: Теперь описывают, ЧТО именно изображено для поисковика -->
             <div class="cat-item">
-                <img src="images/lamba.avif" alt="Легковые авто">
+                <img src="images/lamba.avif" alt="Моторное масло для легковых автомобилей (синтетика, полусинтетика)">
                 <div class="cat-overlay">
                     <div class="cat-title">Легковой транспорт</div>
                     <div class="cat-desc">Масла для бензиновых и дизельных двигателей</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/fura.avif" alt="Грузовые авто">
+                <img src="images/fura.avif" alt="Масла для грузового транспорта и фур оптом">
                 <div class="cat-overlay">
                     <div class="cat-title">Коммерческая техника</div>
                     <div class="cat-desc">Для грузовиков, фур и спецтехники</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/trans.jpg" alt="Трансмиссия">
+                <img src="images/trans.jpg" alt="Трансмиссионные масла для АКПП и МКПП">
                 <div class="cat-overlay">
                     <div class="cat-title">Трансмиссионные масла</div>
                     <div class="cat-desc">Для АКПП, МКПП и редукторов</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/reduktor.jpg" alt="Редукторные масла">
+                <img src="images/reduktor.jpg" alt="Промышленные редукторные масла в бочках">
                 <div class="cat-overlay">
                     <div class="cat-title">Редукторные масла</div>
                     <div class="cat-desc">Для промышленных редукторов и механизмов</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/compressor.jpg" alt="Компрессорные масла">
+                <img src="images/compressor.jpg" alt="Компрессорное масло для винтовых компрессоров">
                 <div class="cat-overlay">
                     <div class="cat-title">Компрессорные масла</div>
                     <div class="cat-desc">Для винтовых, поршневых и роторных компрессоров</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/turbine.jpg" alt="Турбинные масла">
+                <img src="images/turbine.jpg" alt="Турбинные масла для электростанций">
                 <div class="cat-overlay">
                     <div class="cat-title">Турбинные масла</div>
                     <div class="cat-desc">Для паровых и газовых турбин</div>
                 </div>
             </div>
             <div class="cat-item">
-                <img src="images/gpu.jpg" alt="Масла для ГПУ">
+                <img src="images/gpu.jpg" alt="Масла для газопоршневых установок (ГПУ)">
                 <div class="cat-overlay">
                     <div class="cat-title">Масла для ГПУ</div>
                     <div class="cat-desc">Для газопоршневых установок и электростанций</div>
@@ -207,7 +218,7 @@
                 <h2>Хотите узнать актуальные цены?</h2>
                 <p>Закажите звонок, и наш менеджер подготовит для вас индивидуальное коммерческое предложение с учётом объёма и условий поставки.</p>
             </div>
-            <button class="btn btn-gold btn-cta-prices" onclick="openModal()">Заказать звонок</button>
+            <button class="btn btn-gold btn-cta-prices" onclick="openModal()">Заказать звонок / Прайс</button>
         </div>
     </section>
 
@@ -220,45 +231,46 @@
             <button class="slider-arrow" id="trustLeft" aria-label="Назад">&#10094;</button>
             <div class="trust-slider-viewport">
                 <div class="trust-slider-track" id="trustTrack">
+                    <!-- ALT: Добавлены названия компаний -->
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/uralkali.png" alt="Уралкалий">
+                            <img src="images/trust/uralkali.png" alt="Партнер ПАО Уралкалий">
                         </div>
                         <span class="trust-slide-name">ПАО «Уралкалий»</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/uralorgsinтez.png" alt="Уралоргсинтез">
+                            <img src="images/trust/uralorgsinтez.png" alt="Партнер АО Уралоргсинтез">
                         </div>
                         <span class="trust-slide-name">АО «Уралоргсинтез»</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/kamkabel.png" alt="Камкабель">
+                            <img src="images/trust/kamkabel.png" alt="Партнер Камкабель">
                         </div>
                         <span class="trust-slide-name">Камкабель</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/eurohim.png" alt="ЕвроХим">
+                            <img src="images/trust/eurohim.png" alt="Партнер ЕвроХим">
                         </div>
                         <span class="trust-slide-name">ЕвроХим</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/metafrax.png" alt="Метафракс">
+                            <img src="images/trust/metafrax.png" alt="Партнер Метафракс">
                         </div>
                         <span class="trust-slide-name">Метафракс</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/pnppk.png" alt="ПНППК">
+                            <img src="images/trust/pnppk.png" alt="Партнер ПНППК">
                         </div>
                         <span class="trust-slide-name">ПНППК</span>
                     </div>
                     <div class="trust-slide">
                         <div class="trust-slide-img">
-                            <img src="images/trust/novomet.png" alt="Новомет">
+                            <img src="images/trust/novomet.png" alt="Партнер Новомет">
                         </div>
                         <span class="trust-slide-name">Новомет</span>
                     </div>
@@ -275,8 +287,8 @@
                 <div class="title-block">
                     <h2>О компании</h2>
                 </div>
-                <p><strong>ОЛИМП ГРУПП</strong> — надежный поставщик смазочных материалов на российском рынке. Мы не просто продаем масло, мы помогаем вашему бизнесу работать без простоев.</p>
-                <p>Среди наших клиентов: крупные автопарки, станции технического обслуживания, промышленные предприятия и розничные магазины автозапчастей.</p>
+                <p><strong>ОЛИМП ГРУПП</strong> — надежный поставщик смазочных материалов на российском рынке. Мы являемся официальным дистрибьютором и помогаем вашему бизнесу работать без простоев, обеспечивая своевременные поставки масел.</p>
+                <p>Среди наших клиентов: крупные автопарки, станции технического обслуживания, промышленные предприятия Перми и всей России, а также розничные магазины автозапчастей.</p>
                 <div class="stats">
                     <div class="stat-item">
                         <h4>10+</h4>
@@ -284,24 +296,58 @@
                     </div>
                     <div class="stat-item">
                         <h4>500+</h4>
-                        <span>Клиентов</span>
+                        <span>Довольных клиентов</span>
                     </div>
                 </div>
             </div>
             <div class="about-img">
-                <img src="images/sklad.jpg" alt="Склад">
+                <!-- ALT: Описание картинки склада -->
+                <img src="images/sklad.jpg" alt="Склад смазочных материалов ОЛИМП ГРУПП в Перми">
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
-    <footer id="contacts">
+    <!-- НОВЫЙ БЛОК: SEO Текст для продвижения -->
+    <!-- Этот блок визуально неброский, но содержит важный текст для поисковиков -->
+    <section class="section-padding seo-text-section" style="background-color: #f9f9f9; color: #555;">
+        <div class="seo-text-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: #333;">Оптовые поставки масел и смазочных материалов в Перми и РФ</h2>
+            
+            <p style="margin-bottom: 15px; line-height: 1.6;">
+                Компания <strong>«ОЛИМП ГРУПП»</strong> специализируется на оптовой продаже моторных, трансмиссионных и индустриальных масел. 
+                Мы предлагаем выгодные условия сотрудничества для предприятий, автопарков и магазинов запчастей. 
+                Если вы ищете, где <strong>купить масло оптом</strong> с гарантией качества и полным пакетом документов, мы готовы предложить лучшие цены на рынке.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.6;">
+                В нашем каталоге представлены ведущие бренды: <strong>TAIF Lubricants, Rixx, GNV, Suprotec, Nord Oil</strong> и другие. 
+                В наличии на собственном складе в Перми всегда имеются:
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Моторные масла для грузовых и легковых автомобилей (синтетика 5w30, 5w40, полусинтетика 10w40);</li>
+                    <li>Гидравлические и редукторные масла для промышленного оборудования;</li>
+                    <li>Компрессорные и турбинные масла;</li>
+                    <li>Смазочно-охлаждающие жидкости и антифризы.</li>
+                </ul>
+            </p>
+            
+            <p style="line-height: 1.6;">
+                Мы осуществляем доставку смазочных материалов по Пермскому краю и всей территории России. 
+                Прямые контракты с производителями позволяют нам держать конкурентную стоимость и гарантировать отсутствие подделок. 
+                Свяжитесь с нами, чтобы получить актуальный <strong>прайс-лист на масла</strong> и индивидуальное коммерческое предложение.
+            </p>
+        </div>
+    </section>
+    <!-- Конец SEO блока -->
+
+    <!-- Футер с микроразметкой Schema.org -->
+    <footer id="contacts" itemscope itemtype="http://schema.org/LocalBusiness">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 20px;">
-                    <span class="logo-text" style="color: white;">ОЛИМП ГРУПП</span>
+                    <span class="logo-text" style="color: white;" itemprop="name">ОЛИМП ГРУПП</span>
+                    <meta itemprop="image" content="https://olimp-group.ru/images/logo.png"> <!-- Замените на реальный путь -->
                 </div>
-                <p>Качественные моторные масла оптом и в розницу с доставкой по РФ.</p>
+                <p itemprop="description">Качественные моторные масла оптом и в розницу с доставкой по РФ. Официальный дистрибьютор.</p>
             </div>
             <div class="footer-col">
                 <h4>Навигация</h4>
@@ -316,10 +362,17 @@
             <div class="footer-col">
                 <h4>Контакты</h4>
                 <ul>
-                    <li>📍 614025, Пермский край, г. о. Пермский, г. Пермь, ул. Героев Хасана, д. 105, к. 70, офис 430, 432, 434, подьезд Nº 4 «Циклон»</li>
-                    <li>📞 +7 (342) 200-95-32</li>
-                    <li>✉️ OGP.59@yandex.ru</li>
+                    <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                        📍 <span itemprop="postalCode">614025</span>, 
+                        <span itemprop="addressRegion">Пермский край</span>, 
+                        <span itemprop="addressLocality">г. Пермь</span>, 
+                        <span itemprop="streetAddress">ул. Героев Хасана, д. 105, к. 70, офис 430</span>, 
+                        подьезд Nº 4 «Циклон»
+                    </li>
+                    <li>📞 <a href="tel:+73422009532" itemprop="telephone">+7 (342) 200-95-32</a></li>
+                    <li>✉️ <a href="mailto:OGP.59@yandex.ru" itemprop="email">OGP.59@yandex.ru</a></li>
                 </ul>
+                <meta itemprop="openingHours" content="Mo-Fr 09:00-17:30">
             </div>
             <div class="footer-col">
                 <h4>Реквизиты</h4>
@@ -338,12 +391,12 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Заказать звонок</h2>
-            <p class="modal-desc">Заполните форму, и мы свяжемся с вами.</p>
+            <p class="modal-desc">Заполните форму, и мы свяжемся с вами для уточнения цен и условий.</p>
             <form id="callbackForm">
                 <input type="text" id="userName" name="name" placeholder="Ваше имя" required>
                 <input type="tel" id="userPhone" name="phone" placeholder="+7 (999) 000-00-00" required>
                 <input type="email" id="userEmail" name="email" placeholder="Ваш e-mail (необязательно)">
-                <textarea id="userQuestion" name="message" placeholder="Ваш вопрос (необязательно)" rows="3"></textarea>
+                <textarea id="userQuestion" name="message" placeholder="Ваш вопрос или интересующий объем (необязательно)" rows="3"></textarea>
                 <button type="submit" class="btn btn-gold btn-full" id="submitBtn">
                     <span class="btn-text">Отправить заявку</span>
                     <span class="btn-loader" style="display:none;">Отправка...</span>

@@ -188,6 +188,9 @@ if (callbackForm) {
 /* ============================
    УНИВЕРСАЛЬНЫЙ СЛАЙДЕР
    ============================ */
+/* ============================
+   УНИВЕРСАЛЬНЫЙ СЛАЙДЕР (Обновленный)
+   ============================ */
 function initSlider(trackId, leftBtnId, rightBtnId) {
     var track = document.getElementById(trackId);
     var btnLeft = document.getElementById(leftBtnId);
@@ -198,63 +201,93 @@ function initSlider(trackId, leftBtnId, rightBtnId) {
     var slides = track.children;
     if (slides.length === 0) return;
 
-    var currentOffset = 0;
-
-    function getSlideStep() {
-        var slide = slides[0];
-        var style = window.getComputedStyle(track);
-        var gap = parseInt(style.gap) || 25;
-        return slide.offsetWidth + gap;
-    }
-
-    function getViewportWidth() {
-        return track.parentElement.offsetWidth;
-    }
-
-    function getMaxOffset() {
-        var gap = parseInt(window.getComputedStyle(track).gap) || 25;
-        var totalWidth = slides.length * getSlideStep() - gap;
-        var viewportWidth = getViewportWidth();
-        return Math.max(0, totalWidth - viewportWidth);
-    }
+    var currentSlideIndex = 0; // Используем индекс вместо пикселей для точности
 
     function updateTrack() {
-        track.style.transform = 'translateX(-' + currentOffset + 'px)';
+        // Получаем ширину первого слайда (она может меняться на мобилке/десктопе)
+        var slideWidth = slides[0].getBoundingClientRect().width;
+        
+        // Получаем отступ (gap) из стилей
+        var style = window.getComputedStyle(track);
+        var gap = parseFloat(style.gap) || 0;
+        
+        // Вычисляем шаг смещения
+        var step = slideWidth + gap;
+        
+        // Смещаем трек
+        track.style.transform = 'translateX(-' + (currentSlideIndex * step) + 'px)';
+        
+        // Управление прозрачностью кнопок (опционально)
+        btnLeft.style.opacity = currentSlideIndex === 0 ? '0.5' : '1';
+        btnLeft.style.pointerEvents = currentSlideIndex === 0 ? 'none' : 'auto';
+        
+        // Проверка конца слайдера зависит от видимых слайдов
+        // Упрощенно считаем, что можно листать до последнего элемента
+        var maxIndex = slides.length - 1;
+        // Если на экране видно несколько слайдов (десктоп), корректируем maxIndex
+        var trackWidth = track.parentElement.offsetWidth;
+        var visibleSlides = Math.floor(trackWidth / slideWidth);
+        if (visibleSlides > 1) {
+            maxIndex = slides.length - visibleSlides;
+        }
+
+        btnRight.style.opacity = currentSlideIndex >= maxIndex ? '0.5' : '1';
+        btnRight.style.pointerEvents = currentSlideIndex >= maxIndex ? 'none' : 'auto';
     }
 
     btnRight.addEventListener('click', function () {
-        var step = getSlideStep();
-        var maxOffset = getMaxOffset();
-        currentOffset = Math.min(currentOffset + step, maxOffset);
-        updateTrack();
+        // Проверка на максимум
+        var slideWidth = slides[0].getBoundingClientRect().width;
+        var trackWidth = track.parentElement.offsetWidth;
+        var visibleSlides = Math.max(1, Math.floor(trackWidth / slideWidth));
+        
+        if (currentSlideIndex < slides.length - visibleSlides) {
+            currentSlideIndex++;
+            updateTrack();
+        }
     });
 
     btnLeft.addEventListener('click', function () {
-        var step = getSlideStep();
-        currentOffset = Math.max(currentOffset - step, 0);
-        updateTrack();
+        if (currentSlideIndex > 0) {
+            currentSlideIndex--;
+            updateTrack();
+        }
     });
 
+    // Пересчет при изменении размера окна
     window.addEventListener('resize', function () {
-        currentOffset = Math.min(currentOffset, getMaxOffset());
+        // Сбрасываем или корректируем позицию, чтобы не сбилось
         updateTrack();
     });
 
-    // Свайп
+    // Инициализация (запуск один раз при загрузке)
+    setTimeout(updateTrack, 100); // Небольшая задержка, чтобы стили применились
+
+    // --- СВАЙПЫ ДЛЯ МОБИЛЬНЫХ ---
     var touchStartX = 0;
+    var touchEndX = 0;
 
     track.addEventListener('touchstart', function (e) {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
     track.addEventListener('touchend', function (e) {
-        var touchEndX = e.changedTouches[0].screenX;
-        var diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) btnRight.click();
-            else btnLeft.click();
-        }
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
     }, { passive: true });
+
+    function handleSwipe() {
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) { // Если свайпнули больше чем на 50px
+            if (diff > 0) {
+                // Свайп влево -> следующий слайд
+                btnRight.click();
+            } else {
+                // Свайп вправо -> предыдущий слайд
+                btnLeft.click();
+            }
+        }
+    }
 }
 
 // Инициализация обоих слайдеров

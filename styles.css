@@ -1281,132 +1281,267 @@ footer {
     }
 }
 
+/* ============================
+   АДАПТИВ (МОБИЛЬНАЯ ВЕРСИЯ < 600px)
+   ============================ */
 @media (max-width: 600px) {
-    .sticky-bar {
-        height: 48px;
+
+    /* --- 1. Общие настройки --- */
+    .section-padding {
+        padding: 50px 5%;
     }
 
-    .sticky-bar .contact-item a {
-        font-size: 0.85rem;
+    .title-block h2 {
+        font-size: 1.8rem; /* Чуть меньше заголовок */
     }
-
+    
     .btn-sm {
         padding: 6px 14px;
         font-size: 0.7rem;
     }
 
+    /* --- 2. Меню и Шапка --- */
+    .sticky-bar {
+        height: 50px;
+    }
+
+    .sticky-bar-inner {
+        padding: 0 15px; /* Больше места по краям */
+    }
+
+    .sticky-bar .contact-item a {
+        font-size: 0.85rem;
+    }
+    
+    /* Скрываем время работы, чтобы влез телефон */
+    .sticky-bar .contact-item span {
+        display: none;
+    }
+    
+    /* Кнопку "Заказать" делаем компактной иконкой или убираем текст */
+    .sticky-right .btn-gold {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+
+    /* --- 3. HERO (Главный экран) --- */
     .hero {
         height: auto;
-        min-height: 500px;
-        padding: 50px 5%;
+        min-height: 550px; /* Чуть выше, чтобы влез контент */
+        padding: 60px 5%;
     }
 
     .hero-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
     .hero-content p {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
+        font-size: 1rem;
+        margin-bottom: 25px;
     }
 
     .hero-logo img {
-        height: 70px;
+        height: 80px; /* Логотип оптимального размера */
     }
 
     .hero-logo-text {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .hero-logo-glow {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
     }
 
-    .partners-section {
-        padding: 35px 3% 45px;
+    /* --- 4. НОВЫЕ СЛАЙДЕРЫ (1 слайд на экран) --- */
+    
+    .partners-section,
+    .trust-section {
+        padding: 40px 0; /* Убираем боковые отступы у секции, чтобы слайдер был шире */
+        overflow: hidden;
     }
 
-    .partners-heading {
-        font-size: 1.5rem;
+    .partners-heading,
+    .trust-section .title-block h2 {
+        font-size: 1.6rem;
+        padding: 0 15px; /* Возвращаем отступы заголовкам */
         margin-bottom: 25px;
     }
 
     .partners-badge {
-        font-size: 0.65rem;
-        letter-spacing: 3px;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        padding: 0 10px;
+        margin-bottom: 20px;
     }
 
+    /* Контейнер слайдера */
+    .partners-slider-container,
+    .trust-slider-container {
+        position: relative; /* Чтобы позиционировать стрелки абсолютно */
+        width: 100%;
+        display: block; /* Сбрасываем flex */
+    }
+
+    .partners-slider-viewport,
+    .trust-slider-viewport {
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 10px 0 20px 0; /* Место под тень снизу */
+    }
+
+    .partners-slider-track,
+    .trust-slider-track {
+        gap: 0; /* Убираем gap, чтобы считать ширину 100% ровно */
+    }
+
+    /* САМ СЛАЙД (ПАРТНЕРЫ) */
     .partner-slide {
-        width: 130px;
-        gap: 10px;
+        min-width: 100%; /* Занимает весь экран */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 0 50px; /* Отступы по бокам, чтобы не наезжали стрелки */
     }
 
+    /* Карточка с логотипом (УВЕЛИЧЕНА) */
     .partner-slide-img {
-        width: 110px;
-        height: 80px;
-        padding: 15px;
+        width: 100%;
+        max-width: 280px; /* Ограничиваем, чтобы не было гигантским */
+        height: 160px;    /* Высокая карточка */
+        padding: 20px;
+        margin-bottom: 15px;
+        background: rgba(255, 255, 255, 0.1); /* Чуть ярче фон */
     }
 
     .partner-slide-img img {
-        max-height: 40px;
-        max-width: 75px;
+        max-height: 80px; /* Большой логотип */
+        max-width: 180px;
+        transform: scale(1.2); /* Зум логотипа */
     }
 
     .partner-slide-name {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
+        font-size: 1.1rem; /* Крупный текст */
+        margin-top: 5px;
     }
 
+    /* САМ СЛАЙД (ДОВЕРИЕ) */
+    .trust-slide {
+        min-width: 100%;
+        width: 100%;
+        padding: 0 50px;
+        box-sizing: border-box;
+    }
+
+    .trust-slide-img {
+        width: 100%;
+        max-width: 280px;
+        height: 160px;
+        padding: 20px;
+        margin: 0 auto 15px;
+    }
+
+    .trust-slide-img img {
+        max-height: 90px;
+        max-width: 180px;
+        transform: scale(1.1);
+    }
+    
+    .trust-slide-name {
+        font-size: 1rem;
+    }
+
+    /* СТРЕЛКИ НАВИГАЦИИ (ПОВЕРХ СЛАЙДЕРА) */
     .slider-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
+        position: absolute;
+        top: 45%; /* По центру картинки */
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.9) !important; /* Белый фон */
+        color: var(--primary-blue) !important;
+        border: 1px solid #ddd !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
-    .section-padding {
-        padding: 50px 5%;
+    /* Левая стрелка */
+    #sliderLeft, #trustLeft {
+        left: 10px;
     }
 
-    .stats {
+    /* Правая стрелка */
+    #sliderRight, #trustRight {
+        right: 10px;
+    }
+
+    /* --- 5. Остальные блоки --- */
+    
+    /* Преимущества и Категории - в одну колонку */
+    .features-grid, .cat-grid {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
     }
 
+    .feature-card, .cat-item {
+        width: 100%;
+        max-width: 350px; /* На всю ширину с отступами */
+    }
+
+    .cat-item {
+        height: 220px; /* Чуть меньше высота */
+    }
+
+    /* Статистика (О компании) */
+    .stats {
+        flex-direction: row; /* Оставляем в ряд, цифры влезут */
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .stat-item h4 {
+        font-size: 2rem;
+    }
+
+    /* CTA блок (Цены) */
+    .cta-prices-inner {
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .cta-prices-icon {
+        margin-bottom: 15px;
+    }
+    
+    .btn-cta-prices {
+        width: 100%;
+    }
+
+    /* Модальное окно */
     .modal-content {
+        width: 95%;
         margin: 15% auto;
         padding: 30px 20px;
     }
 
-    .trust-slide {
-        width: 140px;
-    }
-
-    .trust-slide-img {
-        width: 120px;
-        height: 80px;
-        padding: 12px;
-    }
-
-    .trust-slide-img img {
-        max-height: 40px;
-        max-width: 80px;
-    }
-
-    .trust-slide-name {
-        font-size: 0.7rem;
-    }
-
+    /* Страница сертификатов */
     .page-hero h1 {
         font-size: 1.8rem;
     }
 
     .cert-card {
         width: 100%;
-        max-width: 350px;
+        max-width: 320px;
     }
 
     .cert-preview {
-        height: 250px;
+        height: 240px;
     }
 }
